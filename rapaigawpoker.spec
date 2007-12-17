@@ -13,7 +13,6 @@ Release:        %{release}
 Source0:        http://relja.narod.ru/download/games/%{name}-%{version}.tar.bz2 
 URL:            http://relja.narod.ru/english/download.html
 Group:          Games/Cards
-BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot 
 License:        GPL
 BuildRequires:  SDL-devel SDL_ttf-devel
 Requires:       SDL SDL_ttf
