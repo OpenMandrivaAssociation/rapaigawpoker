@@ -37,15 +37,15 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
 # Meni
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%{name} << EOF
-?package(%name): \
-command="%{_bindir}/%{name}" \
-needs="X11" \
-icon="%{_datadir}/%{name}/Ikone/48x48/%{name}.png" \
-section="%{section}" \
-title="%{title}" \
-longtitle="%{longtitle}"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=%{_bindir}/%{name}
+Icon=%{_datadir}/%{name}/Ikone/48x48/%{name}.png
+Categories=CardGame;
+Name=%{title}
+Comment=%{longtitle}
 EOF
 
 %post
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/Ikone/*
 %{_datadir}/%{name}/Karte/*
 %{_datadir}/%{name}/Zetoni/*
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 
 
 
