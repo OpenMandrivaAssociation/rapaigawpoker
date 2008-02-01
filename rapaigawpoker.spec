@@ -1,6 +1,6 @@
 %define name    rapaigawpoker
 %define version 1.1
-%define release %mkrel 4
+%define release %mkrel 5
 
 %define section Amusement/Cards
 %define title RA Pai Gaw Poker
@@ -14,9 +14,8 @@ Source0:        http://relja.narod.ru/download/games/%{name}-%{version}.tar.bz2
 URL:            http://relja.narod.ru/english/download.html
 Group:          Games/Cards
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot 
-License:        GPL
+License:        GPLv2+
 BuildRequires:  SDL-devel SDL_ttf-devel
-Requires:       SDL SDL_ttf
 
 %description
 A Poker-like card game, played against a dealer at a casino.
@@ -29,14 +28,14 @@ It has an English (default) and a Serbian language option.
 %setup -q
 
 %build 
-%configure 
+%configure2_5x 
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
-# Meni
+# Menu
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
@@ -61,15 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %files 
 %defattr(-,root,root,0755) 
 %doc README NEWS COPYING AUTHORS THANKS
-
 %{_bindir}/%{name}
-%{_datadir}/%{name}/Dugme/*
-%{_datadir}/%{name}/Font/*
-%{_datadir}/%{name}/Help/*
-%{_datadir}/%{name}/Ikone/*
-%{_datadir}/%{name}/Karte/*
-%{_datadir}/%{name}/Zetoni/*
+%{_datadir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
-
-
-
