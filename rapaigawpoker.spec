@@ -1,6 +1,6 @@
 %define name    rapaigawpoker
 %define version 1.1
-%define release %mkrel 7
+%define release %mkrel 8
 
 %define section Amusement/Cards
 %define title RA Pai Gaw Poker
