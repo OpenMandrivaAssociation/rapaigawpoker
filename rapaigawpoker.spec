@@ -15,6 +15,9 @@ URL:            https://relja.narod.ru/english/download.html
 Group:          Games/Cards
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot 
 License:        GPLv2+
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:  SDL-devel SDL_ttf-devel automake1.4
 
 %description
